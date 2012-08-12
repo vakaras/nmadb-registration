@@ -6,8 +6,8 @@ from nmadb_utils import admin as utils
 from nmadb_utils import actions
 
 
-class SchoolAdmin(utils.ModelAdmin):
-    """ Administration for school.
+class TitleOnlyAdmin(utils.ModelAdmin):
+    """ Administration for models, which have only title and id fields.
     """
 
     list_display = (
@@ -26,7 +26,11 @@ class SchoolAdmin(utils.ModelAdmin):
             )
 
 
-actions.register(_(u'Import schools'), 'nmadb-registration-import-schools')
+actions.register(_(u'Import schools'),
+    'nmadb-registration-import-schools')
+actions.register(_(u'Import sections'),
+    'nmadb-registration-import-sections')
 
-admin.site.register(models.School, SchoolAdmin)
+admin.site.register(models.School, TitleOnlyAdmin)
+admin.site.register(models.Section, TitleOnlyAdmin)
 admin.site.register(models.Address)

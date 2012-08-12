@@ -16,7 +16,7 @@ def import_schools(request):
     """ Imports schools.
     """
     if request.method == 'POST':
-        form = forms.ImportSchoolsForm(request.POST, request.FILES)
+        form = forms.ImportTitleOnlyForm(request.POST, request.FILES)
         if form.is_valid():
             counter = 0
             for sheet in form.cleaned_data['spreadsheet']:
@@ -31,7 +31,40 @@ def import_schools(request):
             return shortcuts.redirect(
                     'admin:nmadb_registration_school_changelist')
     else:
-        form = forms.ImportSchoolsForm()
+        form = forms.ImportTitleOnlyForm()
+    return {
+            'admin_index_url': urlresolvers.reverse('admin:index'),
+            'app_url': urlresolvers.reverse(
+                'admin:app_list',
+                kwargs={'app_label': 'nmadb_registration'}),
+            'app_label': _(u'NMADB Registration'),
+            'form': form,
+            }
+
+
+@admin.site.admin_view
+@render_to('admin/file-form.html')
+@transaction.commit_on_success
+def import_sections(request):
+    """ Imports sections.
+    """
+    if request.method == 'POST':
+        form = forms.ImportTitleOnlyForm(request.POST, request.FILES)
+        if form.is_valid():
+            counter = 0
+            for sheet in form.cleaned_data['spreadsheet']:
+                for row in sheet:
+                    section = models.Section()
+                    section.id = row[u'id']
+                    section.title = row[u'title']
+                    section.save()
+                    counter += 1
+            msg = _(u'{0} sections successfully imported.').format(counter)
+            messages.success(request, msg)
+            return shortcuts.redirect(
+                    'admin:nmadb_registration_section_changelist')
+    else:
+        form = forms.ImportTitleOnlyForm()
     return {
             'admin_index_url': urlresolvers.reverse('admin:index'),
             'app_url': urlresolvers.reverse(

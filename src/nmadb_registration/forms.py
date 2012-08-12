@@ -7,7 +7,7 @@ from django_db_utils.forms import SpreadSheetField
 from pysheets.sheet import Sheet
 
 
-IMPORT_SCHOOLS_REQUIRED_COLUMNS = {
+IMPORT_TITLE_ONLY_REQUIRED_COLUMNS = {
         u'id': _(u'ID'),
         u'title': _(u'Title'),
     }
@@ -17,7 +17,7 @@ def school_import_validate_row(sheet, row):
     """ Checks if row is valid.
     """
     new_row = {}
-    for column, caption in IMPORT_SCHOOLS_REQUIRED_COLUMNS.items():
+    for column, caption in IMPORT_TITLE_ONLY_REQUIRED_COLUMNS.items():
         try:
             new_row[column] = row[caption]
         except KeyError as e:
@@ -43,17 +43,18 @@ def school_import_validate_row(sheet, row):
 def school_import_validate_sheet(spreadsheet, name, sheet):
     """ Creates sheet with correct columns.
     """
-    sheet = Sheet(captions=(list(IMPORT_SCHOOLS_REQUIRED_COLUMNS.keys())))
+    sheet = Sheet(
+            captions=(list(IMPORT_TITLE_ONLY_REQUIRED_COLUMNS.keys())))
     sheet.add_validator(school_import_validate_row, 'insert')
     return sheet, name
 
 
-class ImportSchoolsForm(forms.Form):
-    """ Form for importing new schools.
+class ImportTitleOnlyForm(forms.Form):
+    """ Form for importing new title only models data.
     """
 
     spreadsheet = SpreadSheetField(
-            sheet_name=_(u'Schools'),
+            sheet_name=_(u'Titles and IDs'),
             spreadsheet_constructor_args={
                 'validators': {
                     'spreadsheet': [
@@ -69,5 +70,5 @@ class ImportSchoolsForm(forms.Form):
                     u','.join(
                         _(u'\u201c{0}\u201d').format(caption)
                         for caption in
-                        IMPORT_SCHOOLS_REQUIRED_COLUMNS.values()))
+                        IMPORT_TITLE_ONLY_REQUIRED_COLUMNS.values()))
             )
