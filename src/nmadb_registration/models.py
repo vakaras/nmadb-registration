@@ -85,7 +85,7 @@ class Municipality(models.Model):
         verbose_name_plural = _(u'municipalities')
 
     def __unicode__(self):
-        return self.title
+        return self.title()
 
 
 class Address(models.Model):
@@ -135,4 +135,24 @@ class Address(models.Model):
         verbose_name_plural = _(u'addresses')
 
     def __unicode__(self):
-        return self.postal_code
+        # FIXME: Internationalize.
+
+        if self.flat_number:
+            flat_number = u'-' + unicode(self.flat_number)
+        else:
+            flat_number = u''
+        house = u'{0.street} g. {0.house_number}{0.house_letter}{1}'.format(
+                self, flat_number)
+        if self.municipality.municipality_type == u'T':
+            area = u'{0.postal_code} {0.living_area}'.format(self)
+        elif self.municipality.municipality_type == u'D':
+            area = (
+                    u'{0.living_area}, '
+                    u'{0.postal_code} {0.municipality.town} rajono sav.'
+                    ).format(self)
+        else:
+            area = (
+                    u'{0.living_area}, '
+                    u'{0.postal_code} {0.municipality.town} sav.'
+                    ).format(self)
+        return u'{0}, {1}'.format(house, area)
