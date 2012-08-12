@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-12 09:11+0000\n"
-"PO-Revision-Date: 2012-08-12 12:12+0300\n"
+"POT-Creation-Date: 2012-08-12 11:56+0000\n"
+"PO-Revision-Date: 2012-08-12 15:00+0300\n"
 "Last-Translator: Vytautas Astrauskas <vastrauskas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,65 +18,176 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: admin.py:24
-#: forms.py:11
+#: forms.py:61
+#: forms.py:105
 msgid "ID"
 msgstr "ID"
 
 #: admin.py:25
-#: forms.py:12
-#: models.py:12
+#: forms.py:62
 msgid "Title"
 msgstr "Pavadinimas"
 
-#: admin.py:29
+#: admin.py:51
 msgid "Import schools"
 msgstr "Importuoti mokyklas"
 
-#: forms.py:25
+#: admin.py:53
+msgid "Import sections"
+msgstr "Importuoti sekcijas"
+
+#: admin.py:55
+msgid "Import municipalities"
+msgstr "Importuoti savivaldybes"
+
+#: forms.py:30
 msgid "Missing column: “{0}”."
 msgstr "Trūksta stulpelio: „{0}“."
 
-#: forms.py:31
-msgid "ID cannot be empty."
-msgstr "Nenurodytas ID."
-
-#: forms.py:34
-msgid "Title cannot be empty."
-msgstr "Nenurodytas pavadinimas."
-
 #: forms.py:37
+msgid "{0} cannot be empty."
+msgstr "{0} negali būti tuščias."
+
+#: forms.py:43
+msgid "{0} must be a number."
+msgstr "{0} turi būti skaičius."
+
+#: forms.py:48
+msgid "{0} values must be unique."
+msgstr "{0} reikšmės turi būti unikalios."
+
+#: forms.py:54
 msgid "{0} Error occurred in {1} line. Sheet name is {2}."
 msgstr "{0} Klaida įvyko {1} eilutėje. Lakšto pavadinimas yra {2}."
 
-#: forms.py:56
-msgid "Schools"
-msgstr "Mokyklos"
+#: forms.py:84
+msgid "Titles and IDs"
+msgstr "Pavadinimai ir identifikatoriai"
 
-#: forms.py:64
+#: forms.py:92
+#: forms.py:138
 msgid "Spreadsheet document"
 msgstr "Skaičiuoklės dokumentas"
 
-#: forms.py:67
+#: forms.py:95
+#: forms.py:141
 msgid "Please select spreadsheet file. Required columns are: {0}."
 msgstr "Pasirinkite skaičiuoklės failą. Būtini stulpeliai yra: {0}."
 
-#: forms.py:70
+#: forms.py:98
+#: forms.py:144
 msgid "“{0}”"
 msgstr "„{0}“"
 
-#: models.py:18
+#: forms.py:106
+msgid "Town"
+msgstr "Miestas"
+
+#: forms.py:107
+msgid "Type"
+msgstr "Tipas"
+
+#: forms.py:108
+msgid "Code"
+msgstr "Kodas"
+
+#: forms.py:130
+msgid "Municipalities"
+msgstr "Savivaldybės"
+
+#: models.py:14
+#: models.py:34
+#: models.py:80
+msgid "title"
+msgstr "pavadinimas"
+
+#: models.py:20
 msgid "school"
 msgstr "mokykla"
 
-#: models.py:19
+#: models.py:21
 msgid "schools"
 msgstr "mokyklos"
 
-#: models.py:34
+#: models.py:39
+msgid "section"
+msgstr "sekcija"
+
+#: models.py:40
+msgid "sections"
+msgstr "sekcijos"
+
+#: models.py:51
+#: models.py:57
+msgid "town"
+msgstr "miestas"
+
+#: models.py:52
+msgid "district"
+msgstr "rajonas"
+
+#: models.py:64
+msgid "type"
+msgstr "tipas"
+
+#: models.py:68
+msgid "code"
+msgstr "kodas"
+
+#: models.py:84
+#: models.py:102
+msgid "municipality"
+msgstr "savivaldybė"
+
+#: models.py:85
+msgid "municipalities"
+msgstr "savivaldybės"
+
+#: models.py:96
+msgid "postal code"
+msgstr "pašto indeksas"
+
+#: models.py:97
+msgid "Can be looked up in www.post.lt."
+msgstr "Galima rasti www.post.lt."
+
+#: models.py:107
+msgid "living area"
+msgstr "gyvenamoji vietovė"
+
+#: models.py:108
+msgid "For example, Vilnius or Smilgių kaimas"
+msgstr "Pavyzdžiui, Vilnius arba Smilgių kaimas"
+
+#: models.py:113
+msgid "street"
+msgstr "gatvė"
+
+#: models.py:114
+msgid "Street name. For example, A. Vivulskio."
+msgstr "Gatvės pavadinimas. Pavyzdžui, A. Vivulskio."
+
+#: models.py:118
+msgid "house number"
+msgstr "namo numeris"
+
+#: models.py:123
+msgid "house letter"
+msgstr "namo raidė"
+
+#: models.py:125
+msgid "For example, B."
+msgstr "Pavyzdžiui, B."
+
+#: models.py:129
+msgid "flat number"
+msgstr "buto numeris"
+
+#: models.py:134
 msgid "address"
 msgstr "adresas"
 
-#: models.py:35
+#: models.py:135
 msgid "addresses"
 msgstr "adresai"
 
@@ -85,8 +196,18 @@ msgid "{0} schools successfully imported."
 msgstr "{0} mokyklos sėkmingai importuotos."
 
 #: views.py:40
+#: views.py:73
+#: views.py:111
 msgid "NMADB Registration"
 msgstr "NMADB registracija"
+
+#: views.py:62
+msgid "{0} sections successfully imported."
+msgstr "{0} sekcijos sėkmingai importuotos."
+
+#: views.py:99
+msgid "{0} municipalities successfully imported."
+msgstr "{0} savivaldybės sėkmingai importuotos."
 
 #: templates/admin/nmadb_registration/app_index.html:8
 msgid "NMADB Actions"
@@ -96,3 +217,8 @@ msgstr "NMADB veiksmai"
 msgid "None available"
 msgstr "Nėra pasirinkimų."
 
+#~ msgid "Title cannot be empty."
+#~ msgstr "Nenurodytas pavadinimas."
+
+#~ msgid "Schools"
+#~ msgstr "Mokyklos"

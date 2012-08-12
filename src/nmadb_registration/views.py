@@ -73,3 +73,40 @@ def import_sections(request):
             'app_label': _(u'NMADB Registration'),
             'form': form,
             }
+
+
+@admin.site.admin_view
+@render_to('admin/file-form.html')
+@transaction.commit_on_success
+def import_municipalities(request):
+    """ Imports municipalities.
+    """
+    if request.method == 'POST':
+        form = forms.ImportMunicipalitiesForm(request.POST, request.FILES)
+        if form.is_valid():
+            counter = 0
+            for sheet in form.cleaned_data['spreadsheet']:
+                for row in sheet:
+                    municipality = models.Municipality()
+                    municipality.id = row[u'id']
+                    municipality.town = row[u'town']
+                    municipality.municipality_type = (
+                            row[u'municipality_type'] or u'')
+                    municipality.code = row[u'code']
+                    municipality.save()
+                    counter += 1
+            msg = _(u'{0} municipalities successfully imported.'
+                    ).format(counter)
+            messages.success(request, msg)
+            return shortcuts.redirect(
+                    'admin:nmadb_registration_municipality_changelist')
+    else:
+        form = forms.ImportMunicipalitiesForm()
+    return {
+            'admin_index_url': urlresolvers.reverse('admin:index'),
+            'app_url': urlresolvers.reverse(
+                'admin:app_list',
+                kwargs={'app_label': 'nmadb_registration'}),
+            'app_label': _(u'NMADB Registration'),
+            'form': form,
+            }
