@@ -5,6 +5,7 @@ from django.utils.translation import ugettext as _
 
 from django_db_utils.forms import SpreadSheetField
 from pysheets.sheet import Sheet
+from nmadb_registration import models
 
 
 class ImportValidateRow(object):
@@ -149,3 +150,11 @@ class ImportMunicipalitiesForm(forms.Form):
                         for caption in
                         IMPORT_MUNICIPALITIES_REQUIRED_COLUMNS.values()))
             )
+
+
+class AddressForm(forms.ModelForm):
+    """ Form for address.
+    """
+
+    class Meta(object):
+        model = models.Address
