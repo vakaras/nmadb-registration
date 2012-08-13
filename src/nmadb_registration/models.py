@@ -156,3 +156,41 @@ class Address(models.Model):
                     u'{0.postal_code} {0.municipality.town} sav.'
                     ).format(self)
         return u'{0}, {1}'.format(house, area)
+
+
+class Condition(models.Model):
+    """ Dinamically evaluated condition, which can be checked in
+    code.
+    """
+
+    name = models.CharField(
+            max_length=80,
+            verbose_name=_(u'name'),
+            unique=True,
+            )
+
+    result = models.NullBooleanField(
+            verbose_name=_(u'result'),
+            help_text=(
+                _(u'If null, then evaluates expression.')),
+            )
+
+    description = models.TextField(
+            verbose_name=_(u'description'),
+            blank=True,
+            )
+
+    expression = models.TextField(
+            verbose_name=_(u'expression'),
+            help_text=_(
+                u'When this Python expression evaluates to True, '
+                u'function specified in action is called.'),
+            )
+
+    class Meta(object):
+        ordering = [u'name']
+        verbose_name = _(u'condition')
+        verbose_name_plural = _(u'conditions')
+
+    def __unicode__(self):
+        return self.name

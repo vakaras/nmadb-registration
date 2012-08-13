@@ -48,6 +48,26 @@ class MunicipalityAdmin(utils.ModelAdmin):
             )
 
 
+class ConditionAdmin(utils.ModelAdmin):
+    """ Administration for conditions.
+    """
+
+    list_display = (
+            'id',
+            'name',
+            'result',
+            )
+
+    list_filter = (
+            'result',
+            )
+
+    search_fields = (
+            'name',
+            'description',
+            )
+
+
 actions.register(_(u'Import schools'),
     'nmadb-registration-import-schools')
 actions.register(_(u'Import sections'),
@@ -59,3 +79,4 @@ admin.site.register(models.School, TitleOnlyAdmin)
 admin.site.register(models.Section, TitleOnlyAdmin)
 admin.site.register(models.Municipality, MunicipalityAdmin)
 admin.site.register(models.Address)
+admin.site.register(models.Condition, ConditionAdmin)
