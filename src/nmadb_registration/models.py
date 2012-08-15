@@ -122,12 +122,14 @@ class Address(models.Model):
             max_length=2,
             verbose_name=_(u'house letter'),
             blank=True,
+            null=True,
             help_text=_(u'For example, B.'),
             )
 
     flat_number = models.PositiveSmallIntegerField(
             verbose_name=_(u'flat number'),
             blank=True,
+            null=True,
             )
 
     class Meta(object):
