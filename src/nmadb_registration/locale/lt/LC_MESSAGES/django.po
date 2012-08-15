@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-12 11:56+0000\n"
-"PO-Revision-Date: 2012-08-12 15:00+0300\n"
+"POT-Creation-Date: 2012-08-15 09:45+0000\n"
+"PO-Revision-Date: 2012-08-15 12:47+0300\n"
 "Last-Translator: Vytautas Astrauskas <vastrauskas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,80 +18,80 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: admin.py:24
-#: forms.py:61
-#: forms.py:105
+#: forms.py:64
+#: forms.py:109
 msgid "ID"
 msgstr "ID"
 
 #: admin.py:25
-#: forms.py:62
+#: forms.py:65
 msgid "Title"
 msgstr "Pavadinimas"
 
-#: admin.py:51
+#: admin.py:71
 msgid "Import schools"
 msgstr "Importuoti mokyklas"
 
-#: admin.py:53
+#: admin.py:73
 msgid "Import sections"
 msgstr "Importuoti sekcijas"
 
-#: admin.py:55
+#: admin.py:75
 msgid "Import municipalities"
 msgstr "Importuoti savivaldybes"
 
-#: forms.py:30
+#: forms.py:32
 msgid "Missing column: “{0}”."
 msgstr "Trūksta stulpelio: „{0}“."
 
-#: forms.py:37
+#: forms.py:39
 msgid "{0} cannot be empty."
 msgstr "{0} negali būti tuščias."
 
-#: forms.py:43
+#: forms.py:46
 msgid "{0} must be a number."
 msgstr "{0} turi būti skaičius."
 
-#: forms.py:48
+#: forms.py:51
 msgid "{0} values must be unique."
 msgstr "{0} reikšmės turi būti unikalios."
 
-#: forms.py:54
+#: forms.py:57
 msgid "{0} Error occurred in {1} line. Sheet name is {2}."
 msgstr "{0} Klaida įvyko {1} eilutėje. Lakšto pavadinimas yra {2}."
 
-#: forms.py:84
+#: forms.py:88
 msgid "Titles and IDs"
 msgstr "Pavadinimai ir identifikatoriai"
 
-#: forms.py:92
-#: forms.py:138
+#: forms.py:96
+#: forms.py:143
 msgid "Spreadsheet document"
 msgstr "Skaičiuoklės dokumentas"
 
-#: forms.py:95
-#: forms.py:141
+#: forms.py:99
+#: forms.py:146
 msgid "Please select spreadsheet file. Required columns are: {0}."
 msgstr "Pasirinkite skaičiuoklės failą. Būtini stulpeliai yra: {0}."
 
-#: forms.py:98
-#: forms.py:144
+#: forms.py:102
+#: forms.py:149
 msgid "“{0}”"
 msgstr "„{0}“"
 
-#: forms.py:106
+#: forms.py:110
 msgid "Town"
 msgstr "Miestas"
 
-#: forms.py:107
+#: forms.py:111
 msgid "Type"
 msgstr "Tipas"
 
-#: forms.py:108
+#: forms.py:112
 msgid "Code"
 msgstr "Kodas"
 
-#: forms.py:130
+#: forms.py:135
 msgid "Municipalities"
 msgstr "Savivaldybės"
 
@@ -175,21 +175,53 @@ msgstr "namo numeris"
 msgid "house letter"
 msgstr "namo raidė"
 
-#: models.py:125
+#: models.py:126
 msgid "For example, B."
 msgstr "Pavyzdžiui, B."
 
-#: models.py:129
+#: models.py:130
 msgid "flat number"
 msgstr "buto numeris"
 
-#: models.py:134
+#: models.py:136
 msgid "address"
 msgstr "adresas"
 
-#: models.py:135
+#: models.py:137
 msgid "addresses"
 msgstr "adresai"
+
+#: models.py:170
+msgid "name"
+msgstr "vardas"
+
+#: models.py:175
+msgid "result"
+msgstr "rezultatas"
+
+#: models.py:177
+msgid "If null, then evaluates expression."
+msgstr "Jei NULL, tuomet apskaičiuoja išraišką."
+
+#: models.py:181
+msgid "description"
+msgstr "aprašymas"
+
+#: models.py:186
+msgid "expression"
+msgstr "išraiška"
+
+#: models.py:188
+msgid "When this Python expression evaluates to True, function specified in action is called."
+msgstr "Kai apskaičiavus šią Python išraišką gaunamas True, tuomet yra iškviečiama funkcija nurodyta lauke veiksmas."
+
+#: models.py:194
+msgid "condition"
+msgstr "sąlyga"
+
+#: models.py:195
+msgid "conditions"
+msgstr "sąlygos"
 
 #: views.py:29
 msgid "{0} schools successfully imported."
@@ -197,7 +229,7 @@ msgstr "{0} mokyklos sėkmingai importuotos."
 
 #: views.py:40
 #: views.py:73
-#: views.py:111
+#: views.py:110
 msgid "NMADB Registration"
 msgstr "NMADB registracija"
 
@@ -205,7 +237,7 @@ msgstr "NMADB registracija"
 msgid "{0} sections successfully imported."
 msgstr "{0} sekcijos sėkmingai importuotos."
 
-#: views.py:99
+#: views.py:98
 msgid "{0} municipalities successfully imported."
 msgstr "{0} savivaldybės sėkmingai importuotos."
 
