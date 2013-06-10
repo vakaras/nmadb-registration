@@ -68,12 +68,18 @@ class ConditionAdmin(utils.ModelAdmin):
             )
 
 
-actions.register(_(u'Import schools'),
-    'nmadb-registration-import-schools')
-actions.register(_(u'Import sections'),
-    'nmadb-registration-import-sections')
-actions.register(_(u'Import municipalities'),
-    'nmadb-registration-import-municipalities')
+actions.register(
+        'nmadb-registration-import-schools',
+        _(u'Import schools'),
+        'nmadb-registration-import-schools')
+actions.register(
+        'nmadb-registration-import-sections',
+        _(u'Import sections'),
+        'nmadb-registration-import-sections')
+actions.register(
+        'nmadb-registration-import-municipalities',
+        _(u'Import municipalities'),
+        'nmadb-registration-import-municipalities')
 
 admin.site.register(models.School, TitleOnlyAdmin)
 admin.site.register(models.Section, TitleOnlyAdmin)
