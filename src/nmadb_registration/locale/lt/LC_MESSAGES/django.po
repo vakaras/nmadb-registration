@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 09:45+0000\n"
-"PO-Revision-Date: 2012-08-15 12:47+0300\n"
+"POT-Creation-Date: 2013-06-15 17:51+0000\n"
+"PO-Revision-Date: 2013-06-15 20:53+0300\n"
 "Last-Translator: Vytautas Astrauskas <vastrauskas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,80 +18,80 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: admin.py:24
-#: forms.py:64
-#: forms.py:109
+#: forms.py:62
+#: forms.py:107
 msgid "ID"
 msgstr "ID"
 
 #: admin.py:25
-#: forms.py:65
+#: forms.py:63
 msgid "Title"
 msgstr "Pavadinimas"
 
-#: admin.py:71
+#: admin.py:73
 msgid "Import schools"
 msgstr "Importuoti mokyklas"
 
-#: admin.py:73
+#: admin.py:77
 msgid "Import sections"
 msgstr "Importuoti sekcijas"
 
-#: admin.py:75
+#: admin.py:81
 msgid "Import municipalities"
 msgstr "Importuoti savivaldybes"
 
-#: forms.py:32
+#: forms.py:30
 msgid "Missing column: “{0}”."
 msgstr "Trūksta stulpelio: „{0}“."
 
-#: forms.py:39
+#: forms.py:37
 msgid "{0} cannot be empty."
 msgstr "{0} negali būti tuščias."
 
-#: forms.py:46
+#: forms.py:44
 msgid "{0} must be a number."
 msgstr "{0} turi būti skaičius."
 
-#: forms.py:51
+#: forms.py:49
 msgid "{0} values must be unique."
 msgstr "{0} reikšmės turi būti unikalios."
 
-#: forms.py:57
+#: forms.py:55
 msgid "{0} Error occurred in {1} line. Sheet name is {2}."
 msgstr "{0} Klaida įvyko {1} eilutėje. Lakšto pavadinimas yra {2}."
 
-#: forms.py:88
+#: forms.py:86
 msgid "Titles and IDs"
 msgstr "Pavadinimai ir identifikatoriai"
 
-#: forms.py:96
-#: forms.py:143
+#: forms.py:94
+#: forms.py:141
 msgid "Spreadsheet document"
 msgstr "Skaičiuoklės dokumentas"
 
-#: forms.py:99
-#: forms.py:146
+#: forms.py:97
+#: forms.py:144
 msgid "Please select spreadsheet file. Required columns are: {0}."
 msgstr "Pasirinkite skaičiuoklės failą. Būtini stulpeliai yra: {0}."
 
-#: forms.py:102
-#: forms.py:149
+#: forms.py:100
+#: forms.py:147
 msgid "“{0}”"
 msgstr "„{0}“"
 
-#: forms.py:110
+#: forms.py:108
 msgid "Town"
 msgstr "Miestas"
 
-#: forms.py:111
+#: forms.py:109
 msgid "Type"
 msgstr "Tipas"
 
-#: forms.py:112
+#: forms.py:110
 msgid "Code"
 msgstr "Kodas"
 
-#: forms.py:135
+#: forms.py:133
 msgid "Municipalities"
 msgstr "Savivaldybės"
 
@@ -165,7 +165,7 @@ msgstr "gatvė"
 
 #: models.py:114
 msgid "Street name. For example, A. Vivulskio."
-msgstr "Gatvės pavadinimas. Pavyzdžui, A. Vivulskio."
+msgstr "Gatvės pavadinimas. Pavyzdžiui, A. Vivulskio."
 
 #: models.py:118
 msgid "house number"
