@@ -11,7 +11,7 @@ from nmadb_registration import forms, models
 
 @admin.site.admin_view
 @render_to('admin/file-form.html')
-@transaction.commit_on_success
+@transaction.atomic
 def import_schools(request):
     """ Imports schools.
     """
@@ -44,7 +44,7 @@ def import_schools(request):
 
 @admin.site.admin_view
 @render_to('admin/file-form.html')
-@transaction.commit_on_success
+@transaction.atomic
 def import_sections(request):
     """ Imports sections.
     """
@@ -77,7 +77,7 @@ def import_sections(request):
 
 @admin.site.admin_view
 @render_to('admin/file-form.html')
-@transaction.commit_on_success
+@transaction.atomic
 def import_municipalities(request):
     """ Imports municipalities.
     """

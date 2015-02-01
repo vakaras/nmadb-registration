@@ -155,4 +155,5 @@ class AddressForm(forms.ModelForm):
     """
 
     class Meta(object):
+        exclude = []
         model = models.Address
