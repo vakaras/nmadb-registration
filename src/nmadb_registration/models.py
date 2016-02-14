@@ -20,7 +20,7 @@ class School(models.Model):
         verbose_name = _(u'school')
         verbose_name_plural = _(u'schools')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -39,8 +39,8 @@ class Section(models.Model):
         verbose_name = _(u'section')
         verbose_name_plural = _(u'sections')
 
-    def __unicode__(self):
-        return unicode(self.title)
+    def __str__(self):
+        return str(self.title)
 
 
 class Municipality(models.Model):
@@ -84,7 +84,7 @@ class Municipality(models.Model):
         verbose_name = _(u'municipality')
         verbose_name_plural = _(u'municipalities')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title()
 
 
@@ -136,11 +136,11 @@ class Address(models.Model):
         verbose_name = _(u'address')
         verbose_name_plural = _(u'addresses')
 
-    def __unicode__(self):
+    def __str__(self):
         # FIXME: Internationalize.
 
         if self.flat_number:
-            flat_number = u'-' + unicode(self.flat_number)
+            flat_number = u'-' + str(self.flat_number)
         else:
             flat_number = u''
         house = u'{0.street} g. {0.house_number}{0.house_letter}{1}'.format(
@@ -194,5 +194,5 @@ class Condition(models.Model):
         verbose_name = _(u'condition')
         verbose_name_plural = _(u'conditions')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name

@@ -2,11 +2,9 @@ from django.contrib import admin
 from django.utils.translation import ugettext as _
 
 from nmadb_registration import models
-from nmadb_utils import admin as utils
-from nmadb_utils import actions
 
 
-class TitleOnlyAdmin(utils.ModelAdmin):
+class TitleOnlyAdmin(admin.ModelAdmin):
     """ Administration for models, which have only title and id fields.
     """
 
@@ -20,13 +18,8 @@ class TitleOnlyAdmin(utils.ModelAdmin):
             'title',
             )
 
-    sheet_mapping = (
-            (_(u'ID'), ('id',)),
-            (_(u'Title'), ('title',)),
-            )
 
-
-class MunicipalityAdmin(utils.ModelAdmin):
+class MunicipalityAdmin(admin.ModelAdmin):
     """ Administration for municipality.
     """
 
@@ -48,7 +41,7 @@ class MunicipalityAdmin(utils.ModelAdmin):
             )
 
 
-class ConditionAdmin(utils.ModelAdmin):
+class ConditionAdmin(admin.ModelAdmin):
     """ Administration for conditions.
     """
 
@@ -67,19 +60,6 @@ class ConditionAdmin(utils.ModelAdmin):
             'description',
             )
 
-
-actions.register(
-        'nmadb-registration-import-schools',
-        _(u'Import schools'),
-        'nmadb-registration-import-schools')
-actions.register(
-        'nmadb-registration-import-sections',
-        _(u'Import sections'),
-        'nmadb-registration-import-sections')
-actions.register(
-        'nmadb-registration-import-municipalities',
-        _(u'Import municipalities'),
-        'nmadb-registration-import-municipalities')
 
 admin.site.register(models.School, TitleOnlyAdmin)
 admin.site.register(models.Section, TitleOnlyAdmin)
