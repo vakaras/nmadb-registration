@@ -99,6 +99,7 @@ class Address(models.Model):
 
     municipality = models.ForeignKey(
             Municipality,
+            models.CASCADE,
             verbose_name=_(u'municipality'),
             )
 
